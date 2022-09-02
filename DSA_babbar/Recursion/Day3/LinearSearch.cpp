@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+bool linearSearch(int arr[], int n, int k){
+    if(n==0){
+        return false;
+    }
+
+    if(arr[0]==k){
+        return true;
+    }
+
+    else {
+        bool remainingPart = linearSearch(arr+1, n-1, k);
+        return remainingPart;
+    }
+}
+
+int main()
+{
+    int arr[5] = {3,5,1,2,6};
+    int size = 5;
+    int key = 2;
+
+    bool ans = linearSearch(arr, size, key);
+
+    if(ans){
+        cout << "Present " << endl;
+    }
+    else{
+        cout << "absent " << endl;
+    }
+
+    return 0;
+}
